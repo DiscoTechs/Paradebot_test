@@ -67,13 +67,21 @@ public class Robot extends TimedRobot {
     m_robotDrive.arcadeDrive(-m_stick.getLeftY(), -m_stick.getLeftX());
     // System.out.println("controler work");
 
-    if (m_stick.getLeftBumperButton() == true) { 
-     robotHorn.horn(0.5);
+   if (m_stick.getAButton() == true) { 
+     robotHorn.horn(0.25);
      System.out.println("horn");
-    }else{
-         robotHorn.horn(0.0);
+    }else if (m_stick.getBButton() == true) { 
 
+       robotHorn.horn(0.5);
+    } else if (m_stick.getXButton() == true){
+
+      robotHorn.horn(0.75);
+    } else if (m_stick.getYButton() == true){
+      robotHorn.horn(1.0);
+    } else{
+      robotHorn.horn(0.0);
     }
+  }
 
 
 }
