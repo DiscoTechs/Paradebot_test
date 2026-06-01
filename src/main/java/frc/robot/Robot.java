@@ -5,24 +5,11 @@
 package frc.robot;
 
 import edu.wpi.first.util.sendable.SendableRegistry;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.Joystick.ButtonType;
-import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
-import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-import frc.robot.Horn;
-
-
-import java.lang.ModuleLayer.Controller;
-
-import com.ctre.phoenix.ButtonMonitor;
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 
 
 /**
@@ -39,7 +26,6 @@ public class Robot extends TimedRobot {
   private final XboxController m_stick = new XboxController(0);
   boolean leftTrigger = m_stick.getLeftBumperButtonPressed();
 
-  private final Horn robotHorn = new Horn();
   
 
   /** Called once at the beginning of the robot program. */
@@ -67,20 +53,7 @@ public class Robot extends TimedRobot {
     m_robotDrive.arcadeDrive(-m_stick.getLeftY(), -m_stick.getLeftX());
     // System.out.println("controler work");
 
-   if (m_stick.getAButton() == true) { 
-     robotHorn.horn(0.25);
-     System.out.println("horn");
-    }else if (m_stick.getBButton() == true) { 
 
-       robotHorn.horn(0.5);
-    } else if (m_stick.getXButton() == true){
-
-      robotHorn.horn(0.75);
-    } else if (m_stick.getYButton() == true){
-      robotHorn.horn(1.0);
-    } else{
-      robotHorn.horn(0.0);
-    }
   }
 
 
